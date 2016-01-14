@@ -54,3 +54,18 @@ function findSolution(target) {
 }
 
 console.log(findSolution(24));
+
+// 1-13-2016 with the hint I was able to write this out
+// Your code here.
+function isEven(number) {
+  if (number === 0) { return true; }
+  else if (number === 1) { return false; }
+  else if (number < 0) { return('Negative number!'); }
+}
+console.log(isEven(50));
+// → true
+console.log(isEven(75));
+// → false
+console.log(isEven(-1));
+// → ??
+console.log(isEven(751));
