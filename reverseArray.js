@@ -9,11 +9,8 @@ function reverseArray(oldArray) {
 var oldArray = ["A", "B", "C", "57", "78", "99"];
 console.log(reverseArray(oldArray)); 
 
-var arrayValue = [1, 2, 3, 4, 5];
-function reverseArrayInPlace(arrayValue) {
-	var len = arrayValue.length;
 
-/*	 Pseudo-code working it through
+/*	Now for reverseArrayInPlace: Pseudo-code working it through
 		   	pop the last value off the array
 	    	we want this value placed at the selfsame index as the iteration counter i
 	    		this means we will concatenate it 
@@ -102,13 +99,17 @@ function reverseArrayInPlace(arrayValue) {
 		splice it into the array at (iteration) = 4
 		array: 5,4,3,2,1 // this effectively changes nothing, but it still logically completes the function
 		*/
-		var last = "";
-		for (var i = 0; i < len; i++) {
-			console.log("Loop tracker: iteration " + i);
-			last = arrayValue.pop();
-			console.log("last value currently " + last);
-			arrayValue.splice(i,0,last);
-			console.log("arrayValue currently looks like " + arrayValue);
+		var arrayValue = [1, 2, 3, 4, 5];
+		function reverseArrayInPlace(arrayValue) {
+		var len = arrayValue.length;
+		// code above was at top of document when all other comments written. Now its complete I wanted them together.
+			var last = "";
+			for (var i = 0; i < len; i++) {
+				console.log("Loop tracker: iteration " + i);
+				last = arrayValue.pop();
+				console.log("last value currently " + last);
+				arrayValue.splice(i,0,last);
+				console.log("arrayValue currently looks like " + arrayValue);
 		}
   	return arrayValue;
 } // and it works!! 9:32am 1-19-2016. Spent some hours on this one.
