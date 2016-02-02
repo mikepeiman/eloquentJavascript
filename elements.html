@@ -1,0 +1,88 @@
+<!DOCTYPE html> 
+<html> 
+    <head> 
+        <title>Mike's EloquentJavascript Learning Site</title>         
+        <meta name="viewport" content="width=device-width, initial-scale=1">       
+        <link rel="stylesheet" href="css/app.css">
+        <link href='https://fonts.googleapis.com/css?family=Exo+2:400,700,400italic,700italic|Neuton:400,700' rel='stylesheet' type='text/css'>
+    </head>
+    <body>
+	    <section>
+		    <h1>Mike's EloquentJavascript Learning Site</h1>
+			    <p class="center">
+			    	<input type='text' id="elementsInput" placeholder='Enter Elements'/>
+			    </p>
+			    <p class="center">Separate your elements with a comma</p>
+			    <p class="center">
+			    	<input type='button' onclick='listElemental(elementsInput)' value='Run Elemental'/>
+			    </p>
+			    <p class="center">
+				    <p id="element"></p>
+				    <p id="printLength"></p>
+				    <p id="indexCount"></p>
+
+				</p>
+     <script>   
+		function listElemental(elementsInput) {
+		  var element = {
+		    elementName: "",
+		    elementCreates: "",
+		    elementControls: "",
+		    elementCreatedBy: "",
+		    elementControlledBy: "" };
+		  var elementList = [];
+		  var lenArray = thisArray.length;
+		  var lenElement = element.length;
+		  var elementsInput = document.getElementById("elementsInput").value;
+		  var elementsInputArray = elementsInput.split(",");
+		  document.write(elementsInputArray);
+		  document.getElementById("printLength").innerHTML = "The length of this array is " + elementsInputArray.length;
+
+		  document.getElementById("lenArray").innerHTML = ("This array is " + lenArray + " long.");
+		  document.getElementById("element").innerHTML = "elementList at current index is " + elementList[index];
+
+		  for (var index = 0; index < len; index++) {
+		  	document.write("<p>The index sits at " + index + ".</p>");
+		  	document.getElementById("indexCount").innerHTML = ("The index sits at " + index + ".");
+		    if (index === (len - 2)) {
+		      console.log("Index is currently thisArray.length - 2");
+		      elementList[index] = { 
+		        elementName: thisArray[index],
+		        elementCreates: thisArray[index + 1],
+		        elementControls: thisArray[0],};
+
+		    }
+		    else if (index === (len - 1)) {
+		      console.log("Index is currently thisArray.length - 1");
+		      elementList[index] = { 
+		        elementName: thisArray[index],
+		        elementCreates: thisArray[0],
+		        elementControls: thisArray[1], };
+
+		    } else {
+		      document.write("<p>The index sits at " + index + ".</p>");
+		      elementList[index] = {
+		        elementName: thisArray[index],
+		        elementCreates: thisArray[index+1],
+		        elementControls: thisArray[index+2], };
+
+		  }
+		  var elementName = elementList[index].elementName;
+		  var elementCreates = elementList[index].elementCreates;
+		  var elementControls = elementList[index].elementControls;
+		  var elementCreatedBy = elementList[index].elementCreatedBy;
+		  var elementControlledBy = elementList[index].elementControlledBy;
+		  document.getElementById("element").innerHTML += "elementList is: " + elementList;
+		}
+		   
+		    return elementList;
+		};
+	</script>
+	</section>
+</body>
+</html>
+
+<!-- What I want to accomplish as a very simple app is to ask the user how many elements are in this set.
+On submit, that many text inputs are generated to input the element names... even as I write that I realize it is
+clunky and crude. One form input, enter an element name, repeat until you have entered all your elements. Simple.
+

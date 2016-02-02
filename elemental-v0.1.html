@@ -1,0 +1,45 @@
+<!DOCTYPE html> 
+<html> 
+    <head> 
+        <title>Mike's EloquentJavascript Learning Site</title>         
+        <meta name="viewport" content="width=device-width, initial-scale=1">       
+        <link rel="stylesheet" href="css/app.css">
+        <link href='https://fonts.googleapis.com/css?family=Exo+2:400,700,400italic,700italic|Neuton:400,700' rel='stylesheet' type='text/css'>
+    </head>
+    <body>
+	    <section>
+		    <h1>Mike's EloquentJavascript Learning Site</h1>
+			    <p class="center">
+			    	<input type='text' id="elementsInput" placeholder='Enter Elements'/>
+			    </p>
+			    <p class="center">Separate your elements with a comma</p>
+			    <p class="center">
+			    	<input type='button' onclick='elemental()' value='Run Elemental'/>
+			    </p>
+				    <p id="printLength" class="center">Array length goes here</p>
+				    <p id="elements-1" class="center"></p>
+				    <p id="elements-2" class="center"></p>
+				    <p id="indexCount" class="center"></p>
+
+				
+     <script>   
+		function elemental(elements) {
+			var elements = document.getElementById("elementsInput").value;
+			var elementalArray = elements.split(",");
+			var len = elementalArray.length;
+			document.getElementById("printLength").innerHTML = "You entered " + len + " elements.";
+			document.getElementById("elements-1").innerHTML = "Your elements are: ";
+			for (var index = 0; index < len; index++) {
+				document.getElementById("elements-2").innerHTML += ((index + 1) + ". " + elementalArray[index] + "<br>");
+			}
+			return elements;
+		}
+	</script>
+	</section>
+</body>
+</html>
+
+<!-- What I want to accomplish as a very simple app is to ask the user how many elements are in this set.
+On submit, that many text inputs are generated to input the element names... even as I write that I realize it is
+clunky and crude. One form input, enter an element name, repeat until you have entered all your elements. Simple.
+
