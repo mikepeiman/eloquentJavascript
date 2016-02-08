@@ -10,11 +10,12 @@
 	    <section>
 		    <h1>Mike's EloquentJavascript Learning Site</h1>
 			    <p class="center">
-			    	<input type='text' id="elementsInput" placeholder='Enter Elements'/>
+			    	<input type='text' id="elementsInput" placeholder='Enter Elements' onkeyup="return checkSubmit(event)"/>
 			    </p>
 			    <p class="center">Separate your elements with a comma</p>
 			    <p class="center">
-			    	<input type='button' onclick='elemental()' value='Run Elemental'/>
+			    	<input type='button' for="elementsInput" onclick='elemental()' value='Run Elemental'/>
+	
 			    </p>
 				    <p id="printLength" class="center">Array length goes here</p>
 				    <p id="elements-1" class="center"></p>
@@ -22,7 +23,7 @@
 				    <p id="indexCount" class="center"></p>
 
 				
-     <script>   
+     <script>  
 		function elemental(elements) {
 			var elements = document.getElementById("elementsInput").value;
 			var elementalArray = elements.split(",");
@@ -30,10 +31,17 @@
 			document.getElementById("printLength").innerHTML = "You entered " + len + " elements.";
 			document.getElementById("elements-1").innerHTML = "Your elements are: ";
 			for (var index = 0; index < len; index++) {
-				document.getElementById("elements-2").innerHTML += ((index + 1) + ". " + elementalArray[index] + "<br>");
+				document.getElementById("elements-2").innerHTML += "<p class='element'>" + ((index + 1) + ". " + elementalArray[index] + "</p>");
 			}
+			document.getElementById("elementsInput").value = "";
 			return elements;
 		}
+
+	function checkSubmit(event) {
+		if(event && event.keyCode == 13) {
+			elemental();
+		}
+	}
 	</script>
 	</section>
 </body>

@@ -1,0 +1,76 @@
+<!DOCTYPE html> 
+<html> 
+    <head> 
+        <title>Mike's EloquentJavascript Learning Site</title>         
+        <meta name="viewport" content="width=device-width, initial-scale=1">       
+        <link rel="stylesheet" href="css/app.css">
+        <link href='https://fonts.googleapis.com/css?family=Exo+2:400,700,400italic,700italic|Neuton:400,700' rel='stylesheet' type='text/css'>
+    </head>
+    <body>
+	    <section>
+		    <h1>Mike's EloquentJavascript Learning Site</h1>
+			    <p class="center">
+			    	<input type='text' id="elementsInput" placeholder='Enter Elements' onkeyup="return checkSubmit(event)"/>
+			    </p>
+			    <p class="center">Separate your elements with a comma</p>
+			    <p class="center">
+			    	<input type='button' for="elementsInput" onclick='arrayToList()' value='Run arrayToList'/>
+			    </p>
+				    <p id="output1" class="center">Array length goes here</p>
+				    <ul id="output2" class="center"></ul>
+				    <p id="output3" class="center"></p>
+		</section>
+				
+     <script>   
+/*		function prepend(value, rest) {
+			return {
+				value: value,
+				rest: rest
+			};
+		} 
+* The above is code from https://funkycold.wordpress.com/2015/04/12/learning-javascript-eloquent-js-ch4-data-structures-objects-and-arrays/
+
+I'm going to try the same idea with different labels to see if it helps my conceptual understanding.
+*/
+	function prepend(node, list) {
+		return { value: node, rest: list };
+		}
+
+	function arrayToList(thisInput) {
+		var thisInput = document.getElementById("elementsInput").value;
+		var thisArray = thisInput.split(",");
+		var len = thisArray.length;
+		var list = null;
+		document.getElementById("output1").innerHTML = "You entered " + len + " items.";
+		for (var i = 1; i <= len; i++) {
+			list = prepend(thisArray[len-i], list);
+			document.getElementById("output2").innerHTML += "<li>Iteration counter " + i
+				+ ". List is currently looking like " + listToArray(list) + "</li>";
+			}
+		return list;
+		}
+/* it works to present the array broken down iteration by iteration, but it does not display a nested list of objects. */
+
+	function checkSubmit(event) {
+		if(event && event.keyCode == 13) {
+			arrayToList();
+			}
+		}
+	function listToArray(list) {
+		var arr = [];
+		var len = list.length;
+		console.log("This list is " + len + " long.");
+		for (var node = list; node; node = node.rest) {
+		arr.push(node.value);
+		}
+return arr;
+	}; 
+	</script>
+	
+</body>
+</html>
+
+<!-- What I want to accomplish as a very simple app is to ask the user how many elements are in this set.
+On submit, that many text inputs are generated to input the element names... even as I write that I realize it is
+clunky and crude. One form input, enter an element name, repeat until you have entered all your elements. Simple.
+

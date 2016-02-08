@@ -15,8 +15,13 @@ h1, h2, h3, h4, h5, h6 {
   background-color: #0085f3;
   color: #e9e9e9; }
 
-p {
-  font-size: 1.5em; }
+p, li {
+  font-size: 1.5em;
+  color: #e9e9e9; }
+
+ul {
+  text-decoration: none;
+  list-style: none; }
 
 h6 {
   font-size: 1em;
@@ -60,5 +65,14 @@ input:active {
 
 .banner {
   margin: 0; }
+
+.element {
+  margin: .5em;
+  padding: .5em;
+  border: 5px solid #ffc722;
+  display: inline-block; }
+
+.prepend {
+  color: #aaaaff; }
 
 /*# sourceMappingURL=app.css.map */

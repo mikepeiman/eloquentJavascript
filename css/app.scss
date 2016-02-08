@@ -1,6 +1,7 @@
 $base-font-size: 1em;
 $base-font-color: #e9e9e9;
 $base-background-color: #002340;
+$element-color: #ffc722;
 
 * {
   font-family: 'Exo 2', sans-serif;
@@ -19,8 +20,13 @@ h1, h2, h3, h4, h5, h6 {
   background-color: adjust-color($base-background-color, $hue: 0, $lightness: 35%);
   color: #e9e9e9;
 }
-p {
+p, li {
   font-size: 1.5em;
+  color: #e9e9e9;
+}
+ul {
+  text-decoration: none;
+  list-style: none;
 }
 h6 {
   font-size: ($base-font-size * 1);
@@ -66,4 +72,13 @@ input:active {
 }
 .banner {
   margin: 0;
+}
+.element {
+  margin: .5em;
+  padding: .5em;
+  border: 5px solid $element-color;
+  display: inline-block;
+}
+.prepend {
+  color: #aaaaff;
 }

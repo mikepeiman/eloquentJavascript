@@ -56,8 +56,8 @@ function listElemental(thisArray) {
   console.log("This array is " + lenArray + " long.");
   console.log("The element object is " + lenElement + " long.");
 
-  for (var index = 0; index < len; index++) {
-    if (index === (len - 2)) {
+  for (var index = 0; index < lenArray; index++) {
+    if (index === (lenArray - 2)) {
       console.log("Index is currently thisArray.length - 2");
       elementList[index] = { 
         elementName: thisArray[index],
@@ -65,7 +65,7 @@ function listElemental(thisArray) {
         elementControls: thisArray[0],};
 
     }
-    else if (index === (len - 1)) {
+    else if (index === (lenArray - 1)) {
       console.log("Index is currently thisArray.length - 1");
       elementList[index] = { 
         elementName: thisArray[index],
