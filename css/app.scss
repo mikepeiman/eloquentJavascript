@@ -9,6 +9,7 @@ $element-color: #ffc722;
 body {
   background: #002340;
 }
+
 h1, h2, h3, h4, h5, h6 {
   margin: 0.5em;
   padding: 1em;
@@ -69,6 +70,7 @@ input:active {
 }
 .center {
   text-align: center;
+  margin: 0 auto;
 }
 .banner {
   margin: 0;
@@ -81,4 +83,41 @@ input:active {
 }
 .prepend {
   color: #aaaaff;
+}
+section {
+  padding: 2em;
+  background: rgba(0,0,0,.25);
+  display: block;
+}
+.exercise-group {
+  display: inline-block;
+  margin: 0 auto;
+  width: 90%;
+  padding: 1em;
+
+  @media (min-width: 50em) {
+    width: 30%;
+    padding: .5em;
+    display: inline-block;
+    margin: 0 auto;
+  }
+
+  @media (min-width: 75em) {
+    width: 22.5%;
+    padding: .5em;
+    display: inline-block;
+    margin: 0 auto;
+  }
+}
+ul {
+  width: 100%;
+  display: block;
+  float: left;
+}
+ul li {
+  font-size: .9em;
+  padding: .5em;
+  margin: 0.25em;
+  text-align: left;
+
 }

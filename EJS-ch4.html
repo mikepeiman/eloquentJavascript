@@ -7,18 +7,49 @@
         <link href='https://fonts.googleapis.com/css?family=Exo+2:400,700,400italic,700italic|Neuton:400,700' rel='stylesheet' type='text/css'>
     </head>
     <body>
-	    <section>
-		    <h1>Mike's EloquentJavascript Learning Site</h1>
-			    <p class="center">
-			    	<input type='text' id="elementsInput" placeholder='Enter Elements' onkeyup="return checkSubmit(event)"/>
-			    </p>
-			    <p class="center">Separate your elements with a comma</p>
-			    <p class="center">
-			    	<input type='button' for="elementsInput" onclick='arrayToList()' value='Run arrayToList'/>
-			    </p>
-				    <p id="output1" class="center">Array length goes here</p>
-				    <ul id="output2" class="center"></ul>
-				    <p id="output3" class="center"></p>
+	    
+	    <h1>Mike's EloquentJavascript Learning Site</h1>
+	    <section class="center">
+		    <div class="exercise-group">
+		    	
+			       	<input type='text' id="input-1" placeholder='Enter Elements' onkeyup="return checkSubmit(event)"/>
+			  	  	<p>Separate your elements with a comma</p>			    
+			    	<input type='button' for="input-1" onclick='arrayToList1()' value='Run arrayToList'/>			    
+				    <p id="output-1a" class="center">Array length goes here</p>
+				    <ul id="output-1b" class="center"></ul>
+				    <p id="output-1c" class="center"></p>
+			   
+			</div>
+			<div class="exercise-group">
+		    	
+			       	<input type='text' id="input-2" placeholder='Enter Elements' onkeyup="return checkSubmit(event)"/>
+			  	  	<p>Separate your elements with a comma</p>			    
+			    	<input type='button' for="input-2" onclick='arrayToList2()' value='Run arrayToList'/>			    
+				    <p id="output-2a" class="center">Array length goes here</p>
+				    <ul id="output-2b" class="center"></ul>
+				    <p id="output-2c" class="center"></p>
+			   
+			</div>
+			<div class="exercise-group">
+		    	
+			       	<input type='text' id="input-3" placeholder='Enter Elements' onkeyup="return checkSubmit(event)"/>
+			  	  	<p>Separate your elements with a comma</p>			    
+			    	<input type='button' for="input-3" onclick='arrayToList3()' value='Run arrayToList'/>			    
+				    <p id="output-3a" class="center">Array length goes here</p>
+				    <ul id="output-3b" class="center"></ul>
+				    <p id="output-3c" class="center"></p>
+			  
+			</div>
+			<div class="exercise-group">
+		    	
+			       	<input type='text' id="input-4" placeholder='Enter Elements' onkeyup="return checkSubmit(event)"/>
+			  	  	<p>Separate your elements with a comma</p>			    
+			    	<input type='button' for="input-4" onclick='arrayToList4()' value='Run arrayToList'/>			    
+				    <p id="output-4a" class="center">Array length goes here</p>
+				    <ul id="output-4b" class="center"></ul>
+				    <p id="output-4c" class="center"></p>
+			  
+			</div>	
 		</section>
 				
      <script>   
@@ -36,16 +67,55 @@ I'm going to try the same idea with different labels to see if it helps my conce
 		return { value: node, rest: list };
 		}
 
-	function arrayToList(thisInput) {
-		var thisInput = document.getElementById("elementsInput").value;
+	function arrayToList1(thisInput) {
+		var thisInput = document.getElementById("input-1").value;
 		var thisArray = thisInput.split(",");
 		var len = thisArray.length;
 		var list = null;
-		document.getElementById("output1").innerHTML = "You entered " + len + " items.";
+		document.getElementById("output-1a").innerHTML = "You entered " + len + " items.";
 		for (var i = 1; i <= len; i++) {
 			list = prepend(thisArray[len-i], list);
-			document.getElementById("output2").innerHTML += "<li>Iteration counter " + i
-				+ ". List is currently looking like " + listToArray(list) + "</li>";
+			document.getElementById("output-1b").innerHTML += "<li>Iteration " + i
+				+ ". " + listToArray(list) + "</li>";
+			}
+		return list;
+		}
+		function arrayToList2(thisInput) {
+		var thisInput = document.getElementById("input-2").value;
+		var thisArray = thisInput.split(",");
+		var len = thisArray.length;
+		var list = null;
+		document.getElementById("output-2a").innerHTML = "You entered " + len + " items.";
+		for (var i = 1; i <= len; i++) {
+			list = prepend(thisArray[len-i], list);
+			document.getElementById("output-2b").innerHTML += "<li>Iteration " + i
+				+ ". " + listToArray(list) + "</li>";
+			}
+		return list;
+		}
+		function arrayToList3(thisInput) {
+		var thisInput = document.getElementById("input-3").value;
+		var thisArray = thisInput.split(",");
+		var len = thisArray.length;
+		var list = null;
+		document.getElementById("output-3a").innerHTML = "You entered " + len + " items.";
+		for (var i = 1; i <= len; i++) {
+			list = prepend(thisArray[len-i], list);
+			document.getElementById("output-3b").innerHTML += "<li>Iteration " + i
+				+ ". " + listToArray(list) + "</li>";
+			}
+		return list;
+		}
+		function arrayToList4(thisInput) {
+		var thisInput = document.getElementById("input-4").value;
+		var thisArray = thisInput.split(",");
+		var len = thisArray.length;
+		var list = null;
+		document.getElementById("output-4a").innerHTML = "You entered " + len + " items.";
+		for (var i = 1; i <= len; i++) {
+			list = prepend(thisArray[len-i], list);
+			document.getElementById("output-4b").innerHTML += "<li>Iteration " + i
+				+ ". " + listToArray(list) + "</li>";
 			}
 		return list;
 		}
