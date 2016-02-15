@@ -12,7 +12,7 @@
 	    <section class="center">
 		    <div class="exercise-group">
 		    	
-			       	<input type='text' id="input-1" placeholder='Enter Elements' onkeyup="return checkSubmit(event)"/>
+			       	<input type='text' id="input-1" placeholder='Enter Elements' onkeyup="return checkSubmit1(event)"/>
 			  	  	<p>Separate your elements with a comma</p>			    
 			    	<input type='button' for="input-1" onclick='arrayToList1()' value='Run arrayToList'/>			    
 				    <p id="output-1a" class="center">Array length goes here</p>
@@ -22,7 +22,7 @@
 			</div>
 			<div class="exercise-group">
 		    	
-			       	<input type='text' id="input-2" placeholder='Enter Elements' onkeyup="return checkSubmit(event)"/>
+			       	<input type='text' id="input-2" placeholder='Enter Elements' onkeyup="return checkSubmit2(event)"/>
 			  	  	<p>Separate your elements with a comma</p>			    
 			    	<input type='button' for="input-2" onclick='arrayToList2()' value='Run arrayToList2'/>			    
 				    <p id="output-2a" class="center">Array length goes here</p>
@@ -32,7 +32,7 @@
 			</div>
 			<div class="exercise-group">
 		    	
-			       	<input type='text' id="input-3" placeholder='Enter Elements' onkeyup="return checkSubmit(event)"/>
+			       	<input type='text' id="input-3" placeholder='Enter Elements' onkeyup="return checkSubmit3(event)"/>
 			  	  	<p>Separate your elements with a comma</p>			    
 			    	<input type='button' for="input-3" onclick='arrayToList3()' value='Run arrayToList3'/>			    
 				    <p id="output-3a" class="center">Array length goes here</p>
@@ -42,7 +42,7 @@
 			</div>
 			<div class="exercise-group">
 		    	
-			       	<input type='text' id="input-4" placeholder='Enter Elements' onkeyup="return checkSubmit(event)"/>
+			       	<input type='text' id="input-4" placeholder='Enter Elements' onkeyup="return checkSubmit4(event)"/>
 			  	  	<p>Separate your elements with a comma</p>			    
 			    	<input type='button' for="input-4" onclick='arrayToList4()' value='Run arrayToList4'/>			    
 				    <p id="output-4a" class="center">Array length goes here</p>
@@ -128,18 +128,26 @@ I'm going to try the same idea with different labels to see if it helps my conce
 		}
 /* it works to present the array broken down iteration by iteration, but it does not display a nested list of objects. */
 
-	function checkSubmit(event) {
+	function checkSubmit1(event) {
 		if(event && event.keyCode == 13) {
-			function(elem) {
-				var id = elem.id;
-				var len = id.length;
-				var idNum = id[len-1];
-				var outputId = "output-" + idNum + "b";
-				document.getElementById(outputId).innerHTML = "Looks like you hit enter in this input #" + idNum;
-			}
 			arrayToList1();
 			}
 		}
+	function checkSubmit2(event) {
+	if(event && event.keyCode == 13) {
+		arrayToList2();
+		}
+	}
+	function checkSubmit3(event) {
+	if(event && event.keyCode == 13) {
+		arrayToList3();
+		}
+	}
+	function checkSubmit4(event) {
+	if(event && event.keyCode == 13) {
+		arrayToList4();
+		}
+	}
 	function listToArray(list) {
 		var arr = [];
 		var len = list.length;
