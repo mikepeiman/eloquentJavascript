@@ -24,7 +24,7 @@
 		    	
 			       	<input type='text' id="input-2" placeholder='Enter Elements' onkeyup="return checkSubmit(event)"/>
 			  	  	<p>Separate your elements with a comma</p>			    
-			    	<input type='button' for="input-2" onclick='arrayToList2()' value='Run arrayToList'/>			    
+			    	<input type='button' for="input-2" onclick='arrayToList2()' value='Run arrayToList2'/>			    
 				    <p id="output-2a" class="center">Array length goes here</p>
 				    <ul id="output-2b" class="center"></ul>
 				    <p id="output-2c" class="center"></p>
@@ -34,7 +34,7 @@
 		    	
 			       	<input type='text' id="input-3" placeholder='Enter Elements' onkeyup="return checkSubmit(event)"/>
 			  	  	<p>Separate your elements with a comma</p>			    
-			    	<input type='button' for="input-3" onclick='arrayToList3()' value='Run arrayToList'/>			    
+			    	<input type='button' for="input-3" onclick='arrayToList3()' value='Run arrayToList3'/>			    
 				    <p id="output-3a" class="center">Array length goes here</p>
 				    <ul id="output-3b" class="center"></ul>
 				    <p id="output-3c" class="center"></p>
@@ -44,7 +44,7 @@
 		    	
 			       	<input type='text' id="input-4" placeholder='Enter Elements' onkeyup="return checkSubmit(event)"/>
 			  	  	<p>Separate your elements with a comma</p>			    
-			    	<input type='button' for="input-4" onclick='arrayToList4()' value='Run arrayToList'/>			    
+			    	<input type='button' for="input-4" onclick='arrayToList4()' value='Run arrayToList4'/>			    
 				    <p id="output-4a" class="center">Array length goes here</p>
 				    <ul id="output-4b" class="center"></ul>
 				    <p id="output-4c" class="center"></p>
@@ -80,16 +80,23 @@ I'm going to try the same idea with different labels to see if it helps my conce
 			}
 		return list;
 		}
+		function prepend(element, list) {
+			return {
+				value: element,
+				rest: list
+			};
+		}
 		function arrayToList2(thisInput) {
 		var thisInput = document.getElementById("input-2").value;
 		var thisArray = thisInput.split(",");
 		var len = thisArray.length;
 		var list = null;
+		var index = 0;
 		document.getElementById("output-2a").innerHTML = "You entered " + len + " items.";
-		for (var i = 1; i <= len; i++) {
+		while (index < len) {
 			list = prepend(thisArray[len-i], list);
-			document.getElementById("output-2b").innerHTML += "<li>Iteration " + i
-				+ ". " + listToArray(list) + "</li>";
+			document.getElementById("output-2b").innerHTML += "<li>Iteration " + index
+				+ ". " + list + "</li>";
 			}
 		return list;
 		}
@@ -123,7 +130,14 @@ I'm going to try the same idea with different labels to see if it helps my conce
 
 	function checkSubmit(event) {
 		if(event && event.keyCode == 13) {
-			arrayToList();
+			function(elem) {
+				var id = elem.id;
+				var len = id.length;
+				var idNum = id[len-1];
+				var outputId = "output-" + idNum + "b";
+				document.getElementById(outputId).innerHTML = "Looks like you hit enter in this input #" + idNum;
+			}
+			arrayToList1();
 			}
 		}
 	function listToArray(list) {
