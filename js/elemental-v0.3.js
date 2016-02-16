@@ -20,6 +20,15 @@ I'm going to try the same idea with different labels to see if it helps my conce
 			}
 			return array;
 		}
+	function listToArray(list) {
+		var arr = [];
+		var len = list.length;
+		console.log("This list is " + len + " long.");
+		for (var node = list; node; node = node.rest) {
+		arr.push(node.value);
+		}
+		return arr;
+	}; 
 //******************************************************************************************************
 	function arrayToList1(thisInput) {
 		var thisInput = document.getElementById("input-1").value;
@@ -60,12 +69,15 @@ I'm going to try the same idea with different labels to see if it helps my conce
 		var thisInput = document.getElementById("input-3").value;
 		var initialArray = thisInput.split(",");
 		var thisArray = HTMLli(initialArray);
-		document.getElementById("output-3b").innerHTML = "<p>After HTMLli: " + thisArray + "</p>";
 		var len = thisArray.length;
 		var list = null;
 		var index = 0;
 		document.getElementById("output-3a").innerHTML = "You entered " + len + " items.";
-		document.getElementById("output-3c").innerHTML = "You entered these items: " + thisArray;
+		document.getElementById("output-3b").innerHTML = "You entered these items: ";
+		for (var index = 0; index < len; index++) {
+			document.getElementById("output-3b").innerHTML += thisArray[index];
+		}
+		
 
 		for (var index = 1; index <= len; index++) {
 			list = prepend(thisArray[len-index], list);
@@ -78,21 +90,20 @@ I'm going to try the same idea with different labels to see if it helps my conce
 		return list;
 		}
 //******************************************************************************************************
-		function arrayToList4(thisInput) {
-		var thisInput = document.getElementById("input-4").value;
-		var thisArray = thisInput.split(",");
-		var len = thisArray.length;
-		var list = null;
-		document.getElementById("output-4a").innerHTML = "You entered " + len + " items.";
-		for (var i = 1; i <= len; i++) {
-			list = prepend(thisArray[len-i], list);
-			document.getElementById("output-4b").innerHTML += "<li>Iteration " + i
-				+ ". " + listToArray(list) + "</li>";
-			}
-		return list;
+		function nth(list, itemNumber) {
+			var thisInput = document.getElementById("input-4").value;
+			var thisArray = thisInput.split(",");
+			var thisItem = thisArray.pop();
+			item = thisArray[thisItem];
+			document.getElementById("output-4a").innerHTML = "thisInput is " + thisInput;
+			document.getElementById("output-4b").innerHTML = "thisArray is " + thisArray;
+			document.getElementById("output-4b").innerHTML = "thisItem is " + thisItem;
+			document.getElementById("output-4c").innerHTML = "item is " + item;
+			return;
 		}
-/* it works to present the array broken down iteration by iteration, but it does not display a nested list of objects. */
 
+
+//******************************************************************************************************
 	function checkSubmit1(event) {
 		if(event && event.keyCode == 13) {
 			arrayToList1();
@@ -110,15 +121,6 @@ I'm going to try the same idea with different labels to see if it helps my conce
 	}
 	function checkSubmit4(event) {
 	if(event && event.keyCode == 13) {
-		arrayToList4();
+		nth();
 		}
 	}
-	function listToArray(list) {
-		var arr = [];
-		var len = list.length;
-		console.log("This list is " + len + " long.");
-		for (var node = list; node; node = node.rest) {
-		arr.push(node.value);
-		}
-		return arr;
-	}; 

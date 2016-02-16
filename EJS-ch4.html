@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">       
         <link rel="stylesheet" href="css/app.css">
         <link href='https://fonts.googleapis.com/css?family=Exo+2:400,700,400italic,700italic|Neuton:400,700' rel='stylesheet' type='text/css'>
-        <script type="text/javascript"src="js/elemental-v0.2.js"></script>
+        <script type="text/javascript"src="js/elemental-v0.3.js"></script>
     </head>
     <body>
 	    
@@ -39,20 +39,22 @@
 			  	  	<p>Separate your elements with a comma</p>			    
 			    	<input type='button' for="input-3" onclick='arrayToList3()' value='Run arrayToList3'/>			    
 				    <p id="output-3a" class="center">Array length goes here</p>
-				    <ul id="output-3b" class="center"></ul>
-				    <ul id="output-3c" class="center"></ul>
+				    <p id="output-3b" class="center"></p>
+				    <p id="output-3c" class="center"></p>
 				    <p id="output-3d" class="center"></p>
 				    <p id="output-3e" class="center"></p>
 			  
 			</div>
 			<div class="exercise-group">
 		    	
-			       	<input type='text' id="input-4" placeholder='Enter Elements' onkeyup="return checkSubmit4(event)"/>
-			  	  	<p>Separate your elements with a comma</p>			    
-			    	<input type='button' for="input-4" onclick='arrayToList4()' value='Run arrayToList4'/>			    
+			       	<input type='text' id="input-4" placeholder='Enter arrayToList([a,b,c,d,e,f,g], n)' onkeyup="return checkSubmit4(event)"/>
+			  	  	<p>Substitute your desired item number for n</p>			    
+			    	<input type='button' for="input-4" onclick='nth()' value='Run nth'/>			    
 				    <p id="output-4a" class="center">Array length goes here</p>
-				    <ul id="output-4b" class="center"></ul>
+				    <p id="output-4b" class="center"></p>
 				    <p id="output-4c" class="center"></p>
+				    <p id="output-4d" class="center"></p>
+				    <p id="output-4e" class="center"></p>
 			  
 			</div>	
 		</section>
