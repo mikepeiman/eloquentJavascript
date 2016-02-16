@@ -1,23 +1,27 @@
-function deepEqual(thing1, thing2) {
-	if (typeof thing1 == "object" && thing1 != null) {
-		var obj1 = true; 
-	} else {
-		var obj1 = false;
+function deepEqual(x, y) {
+	if (x === y) {
+		return true;
 	}
-	if (typeof thing2 == "object" && thing2 != null) {
-		var obj2 = true; 
-	} else {
-		var obj2 = false;
+
+	if (x == null || y == null){
+		return false;
 	}
-	if (obj1, obj2) {
-		if (thing1.value === thing2.value) {
-			return true;
-		} else {
+
+	if (typeof x == "object" && typeof y == "object") {
+		var keysX = Object.keys(x);
+		var keysY = Object.keys(y); // is it fair to say that keys == properties, as a definition? key:value pairs?
+		
+		if (keysX.length !== keysY.length) {
 			return false;
 		}
-	} else {
-		return obj1 === obj2;
+		for(var i in x) {
+			if(deepEqual(x[i], y[i]) === false) {
+				return false;
+			}
+		}
+		return true;
 	}
+	return false;
 }
 
 var obj = {here: {is: "an"}, object: 2};
