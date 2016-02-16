@@ -1,31 +1,3 @@
-/* first attempt
-var arrayValue = [];
-function arrayToList(arrayValue) {
-  var len = arrayValue.length;
-  var last = 0;
-  var myList = {
-    value: 0,
-    rest: null 
-  };
-    for (var i = 0; i < len; i++) {
-      console.log("Loop tracker: iteration " + i);
-      last = arrayValue.pop();
-      console.log("  last value currently " + last);
-      console.log("  rest value currently " + myList.rest);
-      console.log("  myList currently " + myList);
-      arrayValue.splice(i,0,last);
-      console.log('Operations performed.');
-      console.log("  last value currently " + last);
-      console.log("  rest value currently " + myList.rest);
-      console.log("  myList currently " + myList);
-      console.log("  arrayValue currently looks like " + arrayValue);
-  }
-  	return arrayValue;
-}
-*/
-/* second attempt, found a gist on github for this https://gist.github.com/laichejl/32d98af04caa66bd195f
-*/
-
 function arrayToList(thisArray) {
   var list = null;
   var len = thisArray.length;
@@ -91,7 +63,7 @@ function listElemental(thisArray) {
     "   Created by " + elementCreatedBy + "/n" +
     "   Controlled by " + elementControlledBy + "/n");
 }
-    return elementList;
+  return elementList;
 };
 console.log(listElemental(["Earth", "Metal", "Water", "Wood", "Fire"]));
 console.log(arrayToList([1, 2, 3, 4, 5, 6, 7]));

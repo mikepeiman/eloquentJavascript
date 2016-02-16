@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">       
         <link rel="stylesheet" href="css/app.css">
         <link href='https://fonts.googleapis.com/css?family=Exo+2:400,700,400italic,700italic|Neuton:400,700' rel='stylesheet' type='text/css'>
+        <script type="text/javascript"src="js/elemental-v0.2.js"></script>
     </head>
     <body>
 	    
@@ -28,6 +29,8 @@
 				    <p id="output-2a" class="center">Array length goes here</p>
 				    <ul id="output-2b" class="center"></ul>
 				    <p id="output-2c" class="center"></p>
+				    <ul id="output-2d" class="center"></ul>
+				    <p id="output-2e" class="center"></p>
 			   
 			</div>
 			<div class="exercise-group">
@@ -37,7 +40,9 @@
 			    	<input type='button' for="input-3" onclick='arrayToList3()' value='Run arrayToList3'/>			    
 				    <p id="output-3a" class="center">Array length goes here</p>
 				    <ul id="output-3b" class="center"></ul>
-				    <p id="output-3c" class="center"></p>
+				    <ul id="output-3c" class="center"></ul>
+				    <p id="output-3d" class="center"></p>
+				    <p id="output-3e" class="center"></p>
 			  
 			</div>
 			<div class="exercise-group">
@@ -51,114 +56,6 @@
 			  
 			</div>	
 		</section>
-				
-     <script>   
-/*		function prepend(value, rest) {
-			return {
-				value: value,
-				rest: rest
-			};
-		} 
-* The above is code from https://funkycold.wordpress.com/2015/04/12/learning-javascript-eloquent-js-ch4-data-structures-objects-and-arrays/
-
-I'm going to try the same idea with different labels to see if it helps my conceptual understanding.
-*/
-	function prepend(node, list) {
-		return { value: node, rest: list };
-		}
-
-	function arrayToList1(thisInput) {
-		var thisInput = document.getElementById("input-1").value;
-		var thisArray = thisInput.split(",");
-		var len = thisArray.length;
-		var list = null;
-		document.getElementById("output-1a").innerHTML = "You entered " + len + " items.";
-		for (var i = 1; i <= len; i++) {
-			list = prepend(thisArray[len-i], list);
-			document.getElementById("output-1b").innerHTML += "<li>Iteration " + i
-				+ ". " + listToArray(list) + "</li>";
-			}
-		return list;
-		}
-		function prepend(element, list) {
-			return {
-				value: element,
-				rest: list
-			};
-		}
-		function arrayToList2(thisInput) {
-		var thisInput = document.getElementById("input-2").value;
-		var thisArray = thisInput.split(",");
-		var len = thisArray.length;
-		var list = null;
-		var index = 0;
-		document.getElementById("output-2a").innerHTML = "You entered " + len + " items.";
-		while (index < len) {
-			list = prepend(thisArray[len-i], list);
-			document.getElementById("output-2b").innerHTML += "<li>Iteration " + index
-				+ ". " + list + "</li>";
-			}
-		return list;
-		}
-		function arrayToList3(thisInput) {
-		var thisInput = document.getElementById("input-3").value;
-		var thisArray = thisInput.split(",");
-		var len = thisArray.length;
-		var list = null;
-		document.getElementById("output-3a").innerHTML = "You entered " + len + " items.";
-		for (var i = 1; i <= len; i++) {
-			list = prepend(thisArray[len-i], list);
-			document.getElementById("output-3b").innerHTML += "<li>Iteration " + i
-				+ ". " + listToArray(list) + "</li>";
-			}
-		return list;
-		}
-		function arrayToList4(thisInput) {
-		var thisInput = document.getElementById("input-4").value;
-		var thisArray = thisInput.split(",");
-		var len = thisArray.length;
-		var list = null;
-		document.getElementById("output-4a").innerHTML = "You entered " + len + " items.";
-		for (var i = 1; i <= len; i++) {
-			list = prepend(thisArray[len-i], list);
-			document.getElementById("output-4b").innerHTML += "<li>Iteration " + i
-				+ ". " + listToArray(list) + "</li>";
-			}
-		return list;
-		}
-/* it works to present the array broken down iteration by iteration, but it does not display a nested list of objects. */
-
-	function checkSubmit1(event) {
-		if(event && event.keyCode == 13) {
-			arrayToList1();
-			}
-		}
-	function checkSubmit2(event) {
-	if(event && event.keyCode == 13) {
-		arrayToList2();
-		}
-	}
-	function checkSubmit3(event) {
-	if(event && event.keyCode == 13) {
-		arrayToList3();
-		}
-	}
-	function checkSubmit4(event) {
-	if(event && event.keyCode == 13) {
-		arrayToList4();
-		}
-	}
-	function listToArray(list) {
-		var arr = [];
-		var len = list.length;
-		console.log("This list is " + len + " long.");
-		for (var node = list; node; node = node.rest) {
-		arr.push(node.value);
-		}
-return arr;
-	}; 
-	</script>
-	
 </body>
 </html>
 
