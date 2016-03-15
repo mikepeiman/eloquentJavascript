@@ -1,0 +1,68 @@
+<!DOCTYPE html> 
+<html> 
+    <head> 
+        <title>Mike's EloquentJavascript Learning Site</title>         
+        <meta name="viewport" content="width=device-width, initial-scale=1">       
+        <link rel="stylesheet" href="css/app.css">
+        <link href='https://fonts.googleapis.com/css?family=Exo+2:400,700,400italic,700italic|Neuton:400,700' rel='stylesheet' type='text/css'>
+       <script type="text/javascript"src="js/jquery-1.12.1.js"></script>
+
+    </head>
+  	<body>
+  	<script>
+//import * as lib from 'ANCESTRY_FILE';
+
+        $.ajax({
+ 
+    // The URL for the request
+    url: "ANCESTRY_FILE.json",
+ 
+    // The data to send (will be converted to a query string)
+    data: {
+        id: 123
+    },
+ 
+    // Whether this is a POST or GET request
+    type: "GET",
+ 
+    // The type of data we expect back
+    dataType : "json",
+ 
+    // Code to run if the request succeeds;
+    // the response is passed to the function
+    success: function( json ) {
+        $( "<h1>" ).text( json.title ).appendTo( "body" );
+        $( "<div class=\"content\">").html( json.html ).appendTo( "body" );
+    },
+ 
+    // Code to run if the request fails; the raw request and
+    // status codes are passed to the function
+    error: function( xhr, status, errorThrown ) {
+        alert( "Sorry, there was a problem!" );
+        console.log( "Error: " + errorThrown );
+        console.log( "Status: " + status );
+        console.dir( xhr );
+    },
+ 
+    // Code to run regardless of success or failure
+    complete: function( xhr, status ) {
+        alert( "The request is complete!" );
+    }
+});
+
+// This makes sure the data is exported in node.js —
+// `require(./path/to/ancestry.js)` will get you the array.
+if (typeof module != "undefined" && module.exports)
+  module.exports = ANCESTRY_FILE;
+
+var ancestry = JSON.parse(ANCESTRY_FILE);
+console.log(ancestry.length);
+
+
+  	</script>
+	</body>
+</html>
+
+<!-- What I want to accomplish as a very simple app is to ask the user how many elements are in this set.
+On submit, that many text inputs are generated to input the element names... even as I write that I realize it is
+clunky and crude. One form input, enter an element name, repeat until you have entered all your elements. Simple.
